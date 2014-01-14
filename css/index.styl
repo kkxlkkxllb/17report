@@ -1,0 +1,25 @@
+@import './mixin'
+@import './page'
+
+article
+	font_family_normal()
+
+section.list
+	margin-top 100px
+	.toggle
+		cursor pointer
+	.panel-heading
+		position relative
+		span.add
+			position absolute
+			right 2px
+			top 1px
+	.panel.disabled
+		.add
+			display none
+		.panel-body
+			display none
+	.panel-info
+		ul
+			li
+				border-bottom none

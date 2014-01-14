@@ -1,0 +1,55 @@
+header.navbar.navbar-fixed-top.navbar-default
+	.container
+		.navbar-header
+			a.navbar-brand(href="#")
+				| Bi-report
+section.list
+	form.form-group(data-action="/reports" method="post" role="form")
+		.panel.panel-default
+			.panel-heading
+				h3.panel-title 1. 输入参数
+			.panel-body
+				.col-lg-6
+					.form-group.input-group
+						span.input-group-addon 商户名称
+						input.form-control(type="text" name="merchant_name" required="required")
+					.form-group.input-group
+						span.input-group-addon 商户MID
+						input.form-control(type="text" name="merchant_mid" required="required")
+					.form-group.input-group
+						span.input-group-addon 城市
+						input.form-control#input-city(type="text" name="city" required="required")
+					.form-group.input-group
+						span.input-group-addon 当前日期
+						input.date.form-control(type="text" name="end_at" required="required")
+				.col-lg-6
+					.form-group.input-group
+						span.input-group-addon MCC
+						input.form-control#input-mcc(type="text" name="mcc" value=mcc)
+					.form-group.input-group
+						span.input-group-addon 商圈MID
+						input.form-control(type="text" name="zone_mid" value=zone_mid)
+					.form-group.input-group
+						span.input-group-addon MTC
+						input.form-control#input-mtc(type="text" name="mtc" required="required")
+
+		.panel.panel-default
+			.panel-heading
+				h3.panel-title 2. 指标确定
+			.panel-body
+				mixin panel(title,chapter)
+					.panel.panel-primary(data-chapter=chapter)
+						.panel-heading.toggle
+							h4.panel-title
+								= title
+							span.add.btn.btn-default
+								i.glyphicon.glyphicon-plus
+						.panel-body
+							ul
+								- var count = 1
+								include items/li
+				+panel("城市概览",1)
+				+panel("行业概览",2)
+				+panel("商户经营情况分析",3)
+				+panel("消费特征分析",4)
+		input.btn.btn-primary(type="submit")

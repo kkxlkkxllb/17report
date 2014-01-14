@@ -1,0 +1,1 @@
+`jade -P src/index.jade -o public/`cake -f src/index.jade jade:compilecake jade:index```a = $("*").length - 1	tns = []	for i in [0..a]		tns.push $("*")[i].tagName	console.log $.unique tns````phantomjs rasterize.js http://192.168.88.104/demo/report/report.html demo.pdf A4`

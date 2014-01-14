@@ -1,0 +1,49 @@
+mixin header_tag(index)
+	case index
+		when 1
+			include segments/header1
+		when 2
+			include segments/header2
+		when 3
+			include segments/header3
+		when 4
+			include segments/header4
+mixin indicators_tag(ine,no_line)
+	case ine.theme_id
+		when 1
+			include segments/chart1
+		when 2
+			include segments/chart2
+		when 3
+			include segments/chart3
+		when 4
+			include segments/chart4
+header.navbar.navbar-fixed-top.navbar-default
+	.container
+		.navbar-header
+			a.navbar-brand(href="#")
+				| Bi-report
+section.list
+	.paginator
+		ul.nav.nav-tabs
+			each item,i in pages
+				li(class=(i === 0 ? ['active'] : []))
+					a(href="#p#{i + 1}" data-toggle="tab")
+						= i + 1
+	.tab-content
+		each item,i in pages
+			.tab-pane(id="p#{i + 1}" class=(i === 0 ? ['active'] : []))
+				.page
+					if item.index
+						+header_tag(item.theme_id)
+					if item.index && item.theme_id === 4
+						include segments/chart5
+					else
+						each ine in item.indicators
+							+indicators_tag(ine,item.index)
+					.page_footer.clearfix
+						- var pg = item.page + 1
+						if pg%2 === 0
+							.pull-left.number= pg
+						else
+							.pull-right.number= pg
