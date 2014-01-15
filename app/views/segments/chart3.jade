@@ -1,3 +1,4 @@
+include ./helper
 .one_small_page
 	unless no_line
 		.black_fine_line_top
@@ -6,19 +7,12 @@
 		| 、
 		span= ine.name
 	.main_content
-		p
-			| 指标定义：
-			a.editable(href="#" data-type="text" data-pk="1" data-url="/post" data-title="修改指标定义")
-				= ine.def_desc
-		p
-			| 计算方法：
-			a.editable(href="#" data-type="text" data-pk="2" data-url="/post" data-title="修改计算方法")
-				= ine.calc_desc
+		+indicators_desc(ine)
 	.analysis_word.one_bottom
-		| 特征分析：
-		a.editable(href="#" data-type="textarea" data-pk="1" data-url="/post" data-title="修改特征分析")
-			= ine.feature
+		+analysis_word(ine)
 	.analysis_image.one
-		img(src='assets/images/c4.png')
+		if ine.charts[0]
+			img(src=ine.charts[0].url)
 	.analysis_image.tow
-		img(src='assets/images/c10.png')
+		if ine.charts[1]
+			img(src=ine.charts[1].url)

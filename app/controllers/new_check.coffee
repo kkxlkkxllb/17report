@@ -38,12 +38,19 @@ class NewCheck extends Spine.Controller
 			chapter: chapter
 			count: count
 		$panel.find(".panel-body ul").append require("views/items/li")(params)
+		@recount($panel)
 		false
 	toggle: (e) ->
 		$panel = $(e.currentTarget).closest(".panel").toggleClass "disabled"
 		false
 	remove: (e) ->
-		$(e.currentTarget).closest("li").remove()
+		$target = $(e.currentTarget)
+		$panel = $target.closest(".panel")
+		$target.closest("li").remove()
+		@recount($panel)
+	recount: (panel) ->
+		panel.find(".label-info").each (idx, ele) ->
+			$(ele).text("page " + (idx + 1))
 	datetimepicker: (e) ->
 		@dfd.done ->
 			$("input.date").datetimepicker

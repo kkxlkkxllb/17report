@@ -39,9 +39,14 @@ class App extends Spine.Controller
 				request_url = Spine.Model.host + "/reports/" + params.id
 				$.get request_url,(data) ->
 					if data.status is 0
-						console.log data.data
+						headers = data.data.filter (d) ->
+							d["index"] is true
+						index_numbers = $.map headers,(d) ->
+							d.page + 1
 						item =
 							pages: data.data
+							report_id: params.id
+							index_numbers: index_numbers
 						new Preview(item: item)
 					else
 						alert data.msg
@@ -49,4 +54,4 @@ class App extends Spine.Controller
 $ ->
 	app = new App()
 	Spine.Route.setup()
-
+	$.fn.editable.defaults.url = Spine.Model.host + "/reports/update_desc"

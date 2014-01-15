@@ -1,0 +1,13 @@
+mixin indicators_desc(ine)
+	p
+		| 指标定义：
+		a.editable(href="#" data-type="text" data-name="def_desc" data-pk=ine.id data-title="修改指标定义")
+			= ine.def_desc
+	p
+		| 计算方法：
+		a.editable(href="#" data-type="text" data-name="calc_desc" data-pk=ine.id data-title="修改计算方法")
+			= ine.calc_desc
+mixin analysis_word(ine)
+	| 特征分析：
+	a.editable(href="#" data-type="textarea" data-name="feature" data-pk=ine.id data-title="修改特征分析")
+		= ine.feature
