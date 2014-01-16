@@ -1,9 +1,13 @@
 td= merchant_name
-td= city
+td= city_name
 td= indicator_count
 td= created_at
 td= status
 td
-	span.detail.btn.btn-default 查看
+	if status_code > 6
+		span.detail.btn.btn-default 查看
 td
 	span.delete.btn.btn-default 删除
+td
+	if status_code === 11
+		a.btn.btn-default(href=url) 下载

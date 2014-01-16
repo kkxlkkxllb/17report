@@ -56,7 +56,7 @@
 	top: 615px;
 	left: 85px;
 	font-size: 85px;
-	font-weight: bold;
+	font-family: lan;
 }
 .bg_image_page1{
 	top: 754px;
@@ -78,6 +78,7 @@ ul,ul li,p{
 	position: absolute;
 	top: 235px;
 	left: 530px;
+	font-family: ou;
 }
 .catalog_main{
 	position: absolute;
@@ -207,10 +208,12 @@ ul,ul li,p{
 	position: absolute;
 	font-size: 16px;
 	font-weight: bold;
-	top: 530px;
+	/*top: 530px;*/
+	top: 510px;
 	left: 36px;
 	width: 788px;
-	height: 100px;
+	/*height: 100px;*/
+	height: 115px;
 	border: solid 1px #000;
 	padding: 10px;
 }
@@ -218,35 +221,36 @@ ul,ul li,p{
 	position: absolute;
 	text-align: center;
 	width: 808px;
-	height: 370px;
+	/*height: 370px;*/
 	top: 155px;
 	left: 36px;
 }
 .analysis_image_bottom img{
 	max-width: 808px;
-	max-height: 370px;
+	/*max-height: 370px;*/
+	max-height: 340px;
 }
 .analysis_word.one_bottom{
 	position: absolute;
 	font-size: 16px;
 	font-weight: bold;
-	top: 1062px;
+	top: 1130px;
 	left: 36px;
 	width: 788px;
-	height: 100px;
+	height: 150px;
 	border: solid 1px #000;
 	padding: 10px;
 }
 .analysis_image.one{
 	position: absolute;
 	width: 808px;
-	height: 450px;
+	/*height: 450px;*/
 	top: 155px;
 	left: 36px;
 }
 .analysis_image.one img{
 	max-width: 808px;
-	max-height: 450px;
+	max-height: 465px;
 }
 .analysis_image.tow{
 	position: absolute;
@@ -341,10 +345,10 @@ form.right{
 }
 .black_title{
 	background: #666666 !important;
-	color: #fff;
+	color: #fff !important;
 	width: 880px;
 	height: 28px;
-	line-height: 29px;
+	line-height: 36px;
 	text-indent: 12px;
 	font-size: 16px;
 	margin-bottom: 20px;
@@ -371,6 +375,9 @@ form.right{
 }
 .explain_important{
   font-size: 12px;
+}
+.explain_important p{
+	line-height: 2;
 }
 input[type=checkbox],
 	input[type=radio] {

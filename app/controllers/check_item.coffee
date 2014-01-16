@@ -16,8 +16,9 @@ class CheckItem extends Spine.Controller
 				url: request_url
 				type: "DELETE"
 				success: (result) =>
-					$(@).release()
+					@release()
 		false
 	render: ->
-		@html require("views/items/check")(@item)
+		data = $.extend {},@item,url: Spine.Model.host + "/reports/" + @item.id + "/download"
+		@html require("views/items/check")(data)
 module.exports = CheckItem

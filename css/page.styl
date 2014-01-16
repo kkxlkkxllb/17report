@@ -2,7 +2,16 @@
 	font-family ou
 	font-style normal
 	src url('./fonts/ou.otf')
-
+@font-face
+	font-family dong
+	font-style normal
+	src url('./fonts/dong.otf')
+@font-face
+	font-family lan
+	font-style normal
+	src url('./fonts/lan.otf')
+.dongqing
+	font-family dong
 .bg_image
 	width 1020px
 	height auto
@@ -11,7 +20,14 @@
 	img
 		width 1020px
 		height auto
+
+@media print
+	.generate_btn
+		display none
 .preview
+	.generate_btn
+		margin-bottom 40px
+		text-align center
 	.paginator
 		width 1000px
 		margin 0 auto
@@ -19,6 +35,8 @@
 		margin-bottom 10px
 	.page.padding
 		padding-top 60px
+	.half_small_page.margin
+		margin-top 35px
 	.page
 		// overflow hidden
 		.page_footer
