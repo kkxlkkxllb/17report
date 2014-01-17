@@ -13,8 +13,23 @@ class NewCheck extends Spine.Controller
 		@selectize()
 		@datetimepicker()
 		@dfd.resolve()
+		if @item
+			@editSelector @item.chapter_1,1
+			@editSelector @item.chapter_2,2
+			@editSelector @item.chapter_3,3
+			@editSelector @item.chapter_4,4
+	editSelector: (collection,num) ->
+		$("div[data-chapter='#{num}'] ul").empty()
+		for item,i in collection
+			count = i + 1
+			if count%2 is 1
+				params =
+					chapter: num
+					count: (count+1)/2
+				$("div[data-chapter='#{num}'] ul").append require("views/items/li")(params)
+			$($("div[data-chapter='#{num}'] ul li select")[i]).val item
 	render: ->
-		@html require("views/new")()
+		@html require("views/new")(@item)
 	submit: (e) ->
 		e.preventDefault()
 		$form = $(e.currentTarget)

@@ -18,14 +18,17 @@ class App extends Spine.Controller
 				@release()
 				@view = new NewCheck()
 			"page/:id": (params) ->
-				@release()
 				$("article .container").html require("views/page#{params.id}")()
 			"header/:id": (params) ->
-				@release()
 				$("article .container").html require("views/segments/header#{params.id}")()
 			"chart/:id": (params) ->
-				@release()
 				$("article .container").html require("views/segments/chart#{params.id}")()
+			"edit/:id": (params) ->
+				@release()
+				request_url = Spine.Model.host + "/reports/" + params.id + "/edit"
+				$.get request_url,(data) =>
+					if data.status is 0
+						@view = new NewCheck(item: data.data)
 			"preview/:id": (params) ->
 				@release()
 				request_url = Spine.Model.host + "/reports/" + params.id

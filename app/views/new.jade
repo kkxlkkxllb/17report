@@ -5,6 +5,8 @@ header.navbar.navbar-fixed-top.navbar-default
 				| Bi-report
 section.list
 	form.form-group(data-action="/reports" method="post" role="form")
+		if id
+			input(type="hidden" name="id" value=id)
 		.panel.panel-default
 			.panel-heading
 				h3.panel-title 1. 输入参数
@@ -12,26 +14,26 @@ section.list
 				.col-lg-6
 					.form-group.input-group
 						span.input-group-addon 商户名称
-						input.form-control(type="text" name="merchant_name" required="required")
+						input.form-control(type="text" name="merchant_name" required="required" value=merchant_name)
 					.form-group.input-group
 						span.input-group-addon 商户MID
-						input.form-control(type="text" name="merchant_mid" required="required")
+						input.form-control(type="text" name="merchant_mid" required="required" value=merchant_mid)
 					.form-group.input-group
 						span.input-group-addon 城市
-						input.form-control#input-city(type="text" name="city" required="required")
+						input.form-control#input-city(type="text" name="city" required="required" value=city)
 					.form-group.input-group
 						span.input-group-addon 当前日期
-						input.date.form-control(type="text" name="end_at" required="required")
+						input.date.form-control(type="text" name="end_at" required="required" value=end_at)
 				.col-lg-6
 					.form-group.input-group
 						span.input-group-addon MCC
-						input.form-control#input-mcc(type="text" name="mcc" value=mcc)
+						input.form-control#input-mcc(type="text" name="mcc" value=mcc )
 					.form-group.input-group
 						span.input-group-addon 商圈MID
 						input.form-control(type="text" name="zone_mid" value=zone_mid)
 					.form-group.input-group
 						span.input-group-addon MTC
-						input.form-control#input-mtc(type="text" name="mtc" required="required")
+						input.form-control#input-mtc(type="text" name="mtc" required="required" value=mtc)
 
 		.panel.panel-default
 			.panel-heading
